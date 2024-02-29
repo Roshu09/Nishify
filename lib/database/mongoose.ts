@@ -20,9 +20,9 @@ export const connectToDatabase = async () => {
     if (cached.conn) return cached.conn;
 
     if(!MONGODB_URL) throw new Error();
-    ('MONGODB_URL is not defined');
+    ('Missing MONGODB_URL');
 
-    cached.promise = cached.promise || mongoose.connect(MONGODB_URL, { dbName: 'Nishify', bufferCommands:false})
+    cached.promise = cached.promise || mongoose.connect(MONGODB_URL, { dbName: 'nishify', bufferCommands:false})
 
     cached.conn = await cached.promise;
 
